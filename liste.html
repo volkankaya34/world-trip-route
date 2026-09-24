@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>World Trip Route · Paylaşılan liste</title>
+<meta name="description" content="Bir arkadaşın World Trip Route gezi listesini seninle paylaştı.">
+<meta property="og:title" content="World Trip Route · Paylaşılan gezi listesi">
+<meta property="og:description" content="Listeyi uygulamana eklemek için dokun.">
+<style>
+  :root {
+    --p1: #6C5CE7; --p2: #4A90E2; --ink: #1f2033; --muted: #6b6f85; --bg: #F5F6FA; --card: #fff;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .hero { background: linear-gradient(160deg, var(--p1), var(--p2)); color: #fff;
+    padding: calc(env(safe-area-inset-top, 0px) + 36px) 24px 64px; text-align: center;
+    border-bottom-left-radius: 28px; border-bottom-right-radius: 28px; }
+  .icon { width: 76px; height: 76px; border-radius: 20px; margin: 0 auto 14px; display: block;
+    box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  h1 { font-size: 24px; margin: 0 0 6px; }
+  .hero p { margin: 0; opacity: .9; font-size: 15px; }
+  main { max-width: 460px; margin: -40px auto 0; padding: 0 16px calc(env(safe-area-inset-bottom, 0px) + 32px); }
+  .card { background: var(--card); border-radius: 20px; padding: 22px; box-shadow: 0 6px 20px rgba(30,30,60,.08); margin-bottom: 14px; }
+  .label { font-size: 12px; font-weight: 800; color: var(--muted); letter-spacing: .6px; text-transform: uppercase; margin: 0 0 10px; }
+  .code { font-size: 38px; font-weight: 800; letter-spacing: 8px; text-align: center; color: var(--p1);
+    background: #F0EEFF; border-radius: 14px; padding: 14px 8px; margin: 0 0 12px; user-select: all; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+    border: 0; border-radius: 14px; padding: 15px 16px; font-size: 16px; font-weight: 700; text-decoration: none; cursor: pointer; }
+  .btn-primary { background: var(--p1); color: #fff; }
+  .btn-light { background: #F0EEFF; color: var(--p1); margin-top: 10px; }
+  .btn-dark { background: #111; color: #fff; margin-top: 10px; }
+  .btn-disabled { background: #e8e8f0; color: #9a9ab0; margin-top: 10px; cursor: default; }
+  ol { margin: 0; padding-left: 20px; color: var(--ink); line-height: 1.6; font-size: 15px; }
+  .hint { font-size: 13px; color: var(--muted); margin: 10px 0 0; line-height: 1.5; }
+  .error { color: #d63031; font-weight: 700; text-align: center; }
+  footer { text-align: center; color: var(--muted); font-size: 12px; margin-top: 18px; }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <header class="hero">
+    <svg class="icon" viewBox="0 0 240 240" aria-hidden="true">
+      <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6C5CE7"/><stop offset="1" stop-color="#4A90E2"/></linearGradient></defs>
+      <rect width="240" height="240" rx="54" fill="url(#g)"/>
+      <path d="M50 150 Q 100 60 118 92 T 185 195" fill="none" stroke="#fff" stroke-width="7" stroke-dasharray="6 12" stroke-linecap="round" opacity=".9"/>
+      <circle cx="68" cy="126" r="8" fill="#fff"/><circle cx="113" cy="90" r="8" fill="#fff"/><circle cx="161" cy="158" r="8" fill="#fff"/>
+      <path d="M163 40 a32 32 0 0 1 32 32 c0 22 -32 58 -32 58 s-32 -36 -32 -58 a32 32 0 0 1 32 -32z" fill="#FF6B6B"/>
+      <circle cx="163" cy="72" r="13" fill="#fff"/>
+    </svg>
+    <h1 id="title">Sana bir gezi listesi paylaşıldı</h1>
+    <p id="subtitle">World Trip Route ile listeyi aç, en kısa rotayla gez.</p>
+  </header>
+
+  <main>
+    <section class="card" id="codeCard">
+      <p class="label" id="codeLabel">Liste kodu</p>
+      <div class="code" id="code">——————</div>
+      <a class="btn btn-primary" id="openApp" href="#">📲 <span id="openAppText">Uygulamada aç</span></a>
+      <button class="btn btn-light" id="copy" type="button">📋 <span id="copyText">Kodu kopyala</span></button>
+      <p class="hint" id="openHint">Uygulama yüklüyse "Uygulamada aç"a dokun, liste otomatik eklenir.</p>
+    </section>
+
+    <section class="card">
+      <p class="label" id="noAppLabel">Uygulaman yok mu?</p>
+      <ol id="steps">
+        <li>Uygulamayı indir ve hesabınla giriş yap.</li>
+        <li>Ana ekranda üstteki <b>Şehir</b> butonuna dokun.</li>
+        <li><b>Kodla liste ekle</b> alanına yukarıdaki kodu yaz.</li>
+      </ol>
+      <a class="btn btn-dark" id="appStore" href="https://apps.apple.com/app/id6814018067"><span id="appStoreText">App Store'dan indir</span></a>
+      <span class="btn btn-disabled" id="playStore"><span id="playStoreText">Google Play · Çok yakında</span></span>
+    </section>
+
+    <footer>
+      <a href="https://volkankaya34.github.io/world-trip-route/">World Trip Route</a> ·
+      <a href="https://volkankaya34.github.io/world-trip-route/gizlilik-politikasi.html" id="privacy">Gizlilik</a>
+    </footer>
+  </main>
+
+<script>
+(function () {
+  // Google Play'de yayına girince buraya linki yaz; boşsa "Çok yakında" görünür
+  var PLAY_URL = '';
+  var ALPHABET = /[^A-Z0-9]/g;
+  var params = new URLSearchParams(location.search);
+  var raw = (params.get('kod') || params.get('code') || '').toUpperCase().replace(ALPHABET, '').slice(0, 6);
+  var tr = (navigator.language || 'tr').toLowerCase().indexOf('tr') === 0;
+
+  var t = tr ? {
+    title: 'Sana bir gezi listesi paylaşıldı', subtitle: 'World Trip Route ile listeyi aç, en kısa rotayla gez.',
+    codeLabel: 'Liste kodu', openApp: 'Uygulamada aç', copy: 'Kodu kopyala', copied: 'Kopyalandı ✓',
+    openHint: 'Uygulama yüklüyse "Uygulamada aç"a dokun, liste otomatik eklenir.',
+    noApp: 'Uygulaman yok mu?',
+    steps: ['Uygulamayı indir ve hesabınla giriş yap.', 'Ana ekranda üstteki <b>Şehir</b> butonuna dokun.', '<b>Kodla liste ekle</b> alanına yukarıdaki kodu yaz.'],
+    appStore: "App Store'dan indir", play: "Google Play'den indir", playSoon: 'Google Play · Çok yakında',
+    privacy: 'Gizlilik', bad: 'Bu link geçersiz görünüyor. Listeyi paylaşan kişiden yeni bir link iste.'
+  } : {
+    title: 'A trip list was shared with you', subtitle: 'Open it in World Trip Route and follow the shortest route.',
+    codeLabel: 'List code', openApp: 'Open in the app', copy: 'Copy code', copied: 'Copied ✓',
+    openHint: 'If you have the app, tap "Open in the app" and the list is added automatically.',
+    noApp: "Don't have the app?",
+    steps: ['Download the app and sign in.', 'On the home screen tap <b>City</b> at the top.', 'Enter the code above in <b>Add list by code</b>.'],
+    appStore: 'Download on the App Store', play: 'Get it on Google Play', playSoon: 'Google Play · Coming soon',
+    privacy: 'Privacy', bad: 'This link looks invalid. Ask the person who shared it for a new link.'
+  };
+
+  function set(id, html) { var el = document.getElementById(id); if (el) el.innerHTML = html; }
+  document.documentElement.lang = tr ? 'tr' : 'en';
+  set('title', t.title); set('subtitle', t.subtitle); set('codeLabel', t.codeLabel);
+  set('openAppText', t.openApp); set('copyText', t.copy); set('openHint', t.openHint);
+  set('noAppLabel', t.noApp); set('appStoreText', t.appStore); set('privacy', t.privacy);
+  set('steps', t.steps.map(function (s) { return '<li>' + s + '</li>'; }).join(''));
+
+  var play = document.getElementById('playStore');
+  if (PLAY_URL) {
+    var a = document.createElement('a');
+    a.className = 'btn btn-dark'; a.href = PLAY_URL; a.innerHTML = '▶ <span>' + t.play + '</span>';
+    play.replaceWith(a);
+  } else {
+    set('playStoreText', t.playSoon);
+  }
+
+  if (raw.length !== 6) {
+    set('code', '<span class="error">' + t.bad + '</span>');
+    document.getElementById('code').style.fontSize = '15px';
+    document.getElementById('code').style.letterSpacing = '0';
+    document.getElementById('openApp').style.display = 'none';
+    document.getElementById('copy').style.display = 'none';
+    return;
+  }
+
+  set('code', raw);
+  document.getElementById('openApp').href = 'worldtriproute://import?code=' + raw;
+  document.getElementById('copy').addEventListener('click', function () {
+    var done = function () { set('copyText', t.copied); setTimeout(function () { set('copyText', t.copy); }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(raw).then(done, done);
+    } else {
+      var ta = document.createElement('textarea'); ta.value = raw; document.body.appendChild(ta);
+      ta.select(); try { document.execCommand('copy'); } catch (e) {} document.body.removeChild(ta); done();
+    }
+  });
+})();
+</script>
+</body>
+</html>
